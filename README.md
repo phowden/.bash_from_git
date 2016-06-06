@@ -12,6 +12,6 @@ Add the following lines to your .bashrc/.bash_profile/etc
 cwd=$(pwd)
 cd ~/.bash_from_git
 git pull -q origin master
-source *
+source *.rc
 cd $cwd
 ```
