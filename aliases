@@ -1,0 +1,31 @@
+# Eclipse Memory Analyzer and Yourkit shortcuts
+alias yjp='~/.yjp/bin/yjp.sh'
+alias mat='~/.mat/MemoryAnalyzer'
+
+# Current time millis
+alias ctm='~/git/misc_scripts/current_millis/current_millis.sh'
+
+# Maven / bang / package commands
+alias mvnci='mvn clean install'
+alias bng_run='./bang.sh && package/bin/*.sh'
+alias just_run='package/bin/*.sh'
+
+# Git related aliases/functions
+alias gpull='git pull'
+alias gpom='git pull origin master'
+alias gst='git status'
+alias gphw='git push origin ph/wip'
+alias gadot='git add .'
+alias gdiff='git diff'
+alias gbr='git branch'
+alias gbvv='git branch -vv'
+
+# Call git commit -m with the parameters as the quoted message
+function gcm () {
+  msg=""
+  for a in "$@"
+    do
+      msg+=" $a"
+  done
+  git commit -m "$msg"
+}
