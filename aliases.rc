@@ -29,3 +29,13 @@ function gcm () {
   done
   git commit -m "$msg"
 }
+
+function gacm () {
+  msg=""
+  for a in "$@"
+    do
+      msg+=" $a"
+  done
+  git commit -am "$msg"
+
+}
