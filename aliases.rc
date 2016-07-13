@@ -19,6 +19,7 @@ alias gadot='git add .'
 alias gdiff='git diff'
 alias gbr='git branch'
 alias gbvv='git branch -vv'
+alias gcp='git commit -p'
 
 # Call git commit -m with the parameters as the quoted message
 function gcm () {
