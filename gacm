@@ -1,0 +1,8 @@
+msg=""
+
+for a in "$@"
+  do
+  msg+=" $a"
+done
+
+git commit -am "$msg"
