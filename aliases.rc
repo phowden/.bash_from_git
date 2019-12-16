@@ -1,20 +1,63 @@
-# Eclipse Memory Analyzer and Yourkit shortcuts
+# mat/yourkit
 alias yjp='~/.yjp/bin/yjp.sh'
 alias mat='~/.mat/MemoryAnalyzer'
 
-# Current time millis
-alias ctm='~/git/misc_scripts/current_millis/current_millis.sh'
-
-# Maven / bang / package commands
+# maven 
 alias mvnci='mvn clean install'
 
-# Git related aliases/functions
+# git 
 alias gpull='git pull'
 alias gpom='git pull origin master'
 alias gst='git status'
 alias gadot='git add .'
 alias gdiff='git diff'
+alias gdiffstat='git diff --stat'
 alias gbr='git branch'
 alias gbvv='git branch -vv'
+alias glog='git log --oneline -n 50'
 alias gcp='git commit -p'
-alias groot='cd $(pwd | grep -o -e "^.*/git/[^/]*")'
+alias gmaster='git checkout master'
+alias grebmaster='git pull --rebase origin master'
+alias grebupstream='git pull --rebase upstream master'
+alias gprune='git remote prune origin'
+alias gdbranch='git branch --merged | grep -E "ph/" | xargs git branch -D'
+alias gpush='git push origin $(git rev-parse --abbrev-ref HEAD)'
+alias gca='git commit --amend'
+alias gcheck='git checkout'
+alias gstash='git stash'
+
+# call git commit -m with the parameters as the quoted message
+function gcm () {
+  msg=""
+  for a in "$@"
+    do
+      msg+=" $a"
+  done
+  git commit -m "$msg"
+}
+
+function gacm () {
+  msg=""
+  for a in "$@"
+    do
+      msg+=" $a"
+  done
+  git commit -am "$msg"
+
+}
+
+function gphw() {
+    git checkout "ph/wip/$@"
+}
+
+function gnb() {
+    git checkout -b "$@"
+    git push --set-upstream origin "$@"
+}
+
+function doforever() {
+    while true; do
+        $1
+        sleep $2
+    done
+}
